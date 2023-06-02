@@ -11,4 +11,9 @@
     <ApplicationDefinition Remove="App.xaml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="4.9.1" />
+    <PackageReference Include="WebDriverManager" Version="2.16.2" />
+  </ItemGroup>
+
 </Project>

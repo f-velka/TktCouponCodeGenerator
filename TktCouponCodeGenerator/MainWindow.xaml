@@ -6,18 +6,17 @@
         xmlns:local="clr-namespace:TktCouponCodeGenerator"
         mc:Ignorable="d"
         FontFamily="Yu Gothic"
-        Title="MainWindow" Height="260" Width="600">
+        Title="MainWindow" Height="350" Width="600">
     <Grid>
         <Button
             x:Name="runButton"
             Content="実行"
             HorizontalAlignment="Center"
-            Margin="0,167,0,0"
             VerticalAlignment="Top"
             Height="40"
             Width="100"
             Click="RunButton_Click"
-            IsEnabled="False"
+            IsEnabled="False" Margin="0,250,0,0"
         />
         <TextBox
             x:Name="emailTextBox"
@@ -27,7 +26,8 @@
             VerticalAlignment="Top"
             Width="430"
             Height="20"
-            TextChanged="emailTextBox_TextChanged"/>
+            TextChanged="textBox_TextChanged"
+        />
         <Label 
             Content="メールアドレス："
             HorizontalAlignment="Left"
@@ -74,6 +74,76 @@
             Width="293"
             Height="19"
             IsEnabled="False"
-            TextChanged="inputFileNameTextBox_TextChanged"/>
+            TextChanged="textBox_TextChanged"
+        />
+        <TextBox
+            x:Name="groupIdTextBox"
+            HorizontalAlignment="Left"
+            Margin="90,165,0,0"
+            VerticalAlignment="Top"
+            Width="68"
+            Height="20"
+            TextChanged="textBox_TextChanged"
+            PreviewTextInput="intTextBox_PreviewTextInput"
+        />
+        <Label 
+            Content="グループID："
+            HorizontalAlignment="Left"
+            Margin="10,159,0,0"
+            VerticalAlignment="Top"
+            Width="80"
+            Height="40"
+            PreviewTextInput="intTextBox_PreviewTextInput"
+        />
+        <TextBox
+            x:Name="eventIdTextBox"
+            HorizontalAlignment="Left"
+            Margin="250,165,0,0"
+            VerticalAlignment="Top"
+            Width="68"
+            Height="20"
+            TextChanged="textBox_TextChanged"
+            PreviewTextInput="intTextBox_PreviewTextInput"
+        />
+        <Label 
+            Content="イベントID："
+            HorizontalAlignment="Left"
+            Margin="167,159,0,0"
+            VerticalAlignment="Top"
+            Width="78"
+            Height="40"/>
+        <TextBox
+            x:Name="showIdTextBox"
+            HorizontalAlignment="Left"
+            Margin="90,198,0,0"
+            VerticalAlignment="Top"
+            Width="68"
+            Height="20"
+            TextChanged="textBox_TextChanged"
+            PreviewTextInput="intTextBox_PreviewTextInput"
+        />
+        <Label 
+            Content="公演ID："
+            HorizontalAlignment="Left"
+            Margin="10,193,0,0"
+            VerticalAlignment="Top"
+            Width="57"
+            Height="40"/>
+        <TextBox
+            x:Name="ticketNameTextBox"
+            HorizontalAlignment="Left"
+            Margin="250,198,0,0"
+            VerticalAlignment="Top"
+            Width="236"
+            Height="20"
+            TextChanged="textBox_TextChanged"
+        />
+        <Label 
+            Content="チケット名："
+            HorizontalAlignment="Left"
+            Margin="167,193,0,0"
+            VerticalAlignment="Top"
+            Width="77"
+            Height="40"/>
     </Grid>
 </Window>

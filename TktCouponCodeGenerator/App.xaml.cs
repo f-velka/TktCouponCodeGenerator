@@ -16,9 +16,18 @@ namespace TktCouponCodeGenerator
         [STAThreadAttribute()]
         public static void Main()
         {
-            var app = new App();
-            app.Startup += Application_Startup;
-            app.Run();
+            try
+            {
+                var app = new App();
+                app.Startup += Application_Startup;
+                app.Run();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private static void Application_Startup(object sender, StartupEventArgs e)
@@ -29,25 +38,53 @@ namespace TktCouponCodeGenerator
             var args = e.Args.ToList();
             while(args.Count > 0)
             {
-                var arg = args[0];
-                switch (args[0])
+                var option = args[0];
+                string value = option switch
+                {
+                    "--direct" => string.Empty,
+                    _ => args.Count > 1 ? args[1] : throw new Exception($"{option} に値が指定されていません。({option})")
+                };
+                if (option != "--direct")
+                {
+                    value = args[1];
+                }
+                switch (option)
                 {
                     case "--email":
-                        window.EMail = arg;
+                        window.EMail = value;
                         break;
                     case "--password":
-                        window.Password = arg;
+                        window.Password = value;
                         break;
                     case "--coupon-file":
-                        window.InputFilePath = arg;
+                        window.InputFilePath = value;
+                        break;
+                    case "--group-id":
+                        CheckArgIsInt(option, value);
+                        window.GroupId = value;
+                        break;
+                    case "--event-id":
+                        CheckArgIsInt(option, value);
+                        window.EventId = value;
+                        break;
+                    case "--show-id":
+                        CheckArgIsInt(option, value);
+                        window.ShowId = value;
+                        break;
+                    case "--ticket-name":
+                        window.TicketName = value;
                         break;
                     case "--direct":
                         runDirectly = true;
                         break;
                     default:
-                        throw new Exception($"不正なオプション ({args[0]})");
+                        throw new Exception($"不正なオプションです。 ({args[0]})");
                 }
                 args.RemoveAt(0);
+                if (option != "--direct")
+                {
+                    args.RemoveAt(0);
+                }
             }
 
             if (runDirectly)
@@ -57,6 +94,14 @@ namespace TktCouponCodeGenerator
             else
             {
                 window.Show();
+            }
+        }
+
+        private static void CheckArgIsInt(string optionName, string arg)
+        {
+            if (!int.TryParse(arg, out _))
+            {
+                throw new Exception($"{optionName} の値が不正です。");
             }
         }
     }
