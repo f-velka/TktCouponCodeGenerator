@@ -20,6 +20,12 @@ namespace TktCouponCodeGenerator
             {
                 var app = new App();
                 app.Startup += Application_Startup;
+                app.DispatcherUnhandledException += (s, e) =>
+                {
+                    MessageBox.Show(e.Exception.StackTrace);
+                    e.Handled = true;
+                };
+
                 app.Run();
             }
             catch (Exception ex)

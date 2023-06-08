@@ -14,13 +14,13 @@ namespace TktCouponCodeGenerator
 {
     internal static class SeleniumRunner
     {
-        private static readonly int TrialCountMax = 10;
+        private static readonly int TrialCountMax = 20;
 
         public static async void Run(TargetConfig config, IEnumerable<CouponInfo> couponInfos)
         {
             var Wait = async (double sec) => await Task.Delay((int)sec * 1000);
 
-            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
+            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.Latest);
             var c = new ChromeDriver();
 
             // イベントの管理画面を開く

@@ -113,7 +113,7 @@ namespace TktCouponCodeGenerator
         private static List<CouponInfo> ReadCouponFile(string fileName)
         {
             string content;
-            using (var reader = new StreamReader(fileName))
+            using (var reader = new StreamReader(fileName, new FileStreamOptions() { Access = FileAccess.Read }))
             {
                 content = reader.ReadToEnd();
             }
