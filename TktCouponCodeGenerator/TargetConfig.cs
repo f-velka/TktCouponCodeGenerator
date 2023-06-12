@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace TktCouponCodeGenerator
 {
-    record TargetConfig(string Email, string Password, int GroupId, int EventId, int ShowId, string TicketName);
+    record TargetConfig(string Email, string Password, int GroupId, int EventId, int ShowId, string TicketType, string TicketName);
 }

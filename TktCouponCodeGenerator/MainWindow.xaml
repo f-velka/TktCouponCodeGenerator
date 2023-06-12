@@ -16,7 +16,7 @@
             Height="40"
             Width="100"
             Click="RunButton_Click"
-            IsEnabled="False" Margin="0,250,0,0"
+            IsEnabled="False" Margin="0,268,0,0"
         />
         <TextBox
             x:Name="emailTextBox"
@@ -115,7 +115,7 @@
         <TextBox
             x:Name="showIdTextBox"
             HorizontalAlignment="Left"
-            Margin="90,198,0,0"
+            Margin="427,165,0,0"
             VerticalAlignment="Top"
             Width="68"
             Height="20"
@@ -125,14 +125,14 @@
         <Label 
             Content="公演ID："
             HorizontalAlignment="Left"
-            Margin="10,193,0,0"
+            Margin="347,160,0,0"
             VerticalAlignment="Top"
             Width="57"
             Height="40"/>
         <TextBox
             x:Name="ticketNameTextBox"
             HorizontalAlignment="Left"
-            Margin="250,198,0,0"
+            Margin="274,199,0,0"
             VerticalAlignment="Top"
             Width="236"
             Height="20"
@@ -141,9 +141,25 @@
         <Label 
             Content="チケット名："
             HorizontalAlignment="Left"
-            Margin="167,193,0,0"
+            Margin="191,194,0,0"
             VerticalAlignment="Top"
             Width="77"
+            Height="40"/>
+        <TextBox
+            x:Name="ticketTypeTextBox"
+            HorizontalAlignment="Left"
+            Margin="58,199,0,0"
+            VerticalAlignment="Top"
+            Width="125"
+            Height="20"
+            TextChanged="textBox_TextChanged"
+        />
+        <Label 
+            Content="券種："
+            HorizontalAlignment="Left"
+            Margin="10,194,0,0"
+            VerticalAlignment="Top"
+            Width="48"
             Height="40"/>
     </Grid>
 </Window>

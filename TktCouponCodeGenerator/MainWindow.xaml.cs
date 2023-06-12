@@ -59,6 +59,11 @@ namespace TktCouponCodeGenerator
             get => showIdTextBox.Text;
             set => showIdTextBox.Text = value;
         }
+        public string TicketType
+        {
+            get => ticketTypeTextBox.Text;
+            set => ticketTypeTextBox.Text = value;
+        }
 
         public string TicketName
         {
@@ -100,6 +105,7 @@ namespace TktCouponCodeGenerator
                     int.Parse(this.GroupId),
                     int.Parse(this.EventId),
                     int.Parse(this.ShowId),
+                    this.TicketType,
                     this.TicketName
                 );
                 SeleniumRunner.Run(config, couponInfos);

@@ -1,5 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using AngleSharp.Html.Dom;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,10 +64,15 @@ namespace TktCouponCodeGenerator
                     targetTicketArea = tickets
                         .Where(x =>
                         {
+                            var ticketType = new SelectElement(x
+                                .FindElement(By.CssSelector(".ticket-form__ticket-type select")))
+                                .SelectedOption
+                                .Text;
+
                             var ticketName = x
-                            .FindElement(By.ClassName("ticket-form__ticket-name"))
-                            .FindElement(By.CssSelector("input")).GetAttribute("value");
-                            return ticketName == config.TicketName;
+                                .FindElement(By.CssSelector(".ticket-form__ticket-name input"))
+                                .GetAttribute("value");
+                            return ticketType == config.TicketType && ticketName == config.TicketName;
                         })
                         .First();
 
