@@ -1,5 +1,8 @@
 # TktCouponCodeGenerator
 
+https://github.com/f-velka/tkt-coupon-setter  
+Chrome の拡張機能として作りなおしたのでそちらを使ったほうがよい。
+
 ## 概要
 
 Selenium を使用して、teket の管理画面を開きクーポンコードを登録するプログラム。  
